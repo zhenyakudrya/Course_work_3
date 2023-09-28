@@ -5,11 +5,15 @@ import re
 
 def load_operations(file):
     """
-    Считывание json файла
+    Считывание json файла, добавление операций в список
     """
     with open('operations.json', mode='r', encoding='utf-8') as file:
         file_json = json.load(file)
-    return file_json
+    operations_list = []
+    for item in file_json:
+        if 'id' in item:
+            operations_list.append(item)
+    return operations_list
 
 
 def sort_by_date(operations_list):
@@ -17,10 +21,7 @@ def sort_by_date(operations_list):
     Сортировка списка операций по дате (от новых к старым)
     """
     sorted_operations_list = []
-    for item in operations_list:
-        if 'id' in item:
-            sorted_operations_list.append(item)
-    sorted_operations_list = sorted(sorted_operations_list,
+    sorted_operations_list = sorted(operations_list,
                                     key=lambda x: x['date'], reverse=True)
     return sorted_operations_list
 

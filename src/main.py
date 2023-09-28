@@ -1,5 +1,4 @@
-from functions import (load_operations, sort_by_date, executed_operations,
-                       last_operations, date_conversion, encryption)
+from functions import *
 
 if __name__ == '__main__':
 
