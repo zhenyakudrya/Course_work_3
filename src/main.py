@@ -2,23 +2,14 @@ from functions import *
 
 if __name__ == '__main__':
 
-    # Загрузка json файла
-    operations_json = load_operations('operations.json')
+    # Загрузка json файла, сортировка списка операций по дате
+    operations_list = sort_by_date(load_operations('operations.json'))
 
-    # Сортировка списка операций по дате
-    operations_list = sort_by_date(operations_json)
+    # Выбор только выполненных последних 5 операций
+    operations_list = last_operations(executed_operations(operations_list), 5)
 
-    # Выбор только выполненных операций
-    operations_list = executed_operations(operations_list)
-
-    # Выбор последних 5 операций
-    operations_list = last_operations(operations_list, 5)
-
-    # Конвертация даты в вид "дд.мм.ггг"
-    operations_list = date_conversion(operations_list)
-
-    # Шифровка данных карт, счетов
-    operations_list = encryption(operations_list)
+    # Конвертация даты в вид "дд.мм.ггг", шифровка данных карт, счетов
+    operations_list = encryption(date_conversion(operations_list))
 
     # Вывод информации на экран
     for item in operations_list:

@@ -34,3 +34,7 @@ def test_date_conversion(list_fixture):
 
 def test_encryption(list_fixture):
     assert encryption(list_fixture)[0]['from'] == 'Maestro 1596 83** **** 5199'
+
+
+def test_load_operations(list_fixture):
+    assert len(load_operations(list_fixture)) == 100
