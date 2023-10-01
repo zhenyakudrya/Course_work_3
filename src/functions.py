@@ -7,7 +7,7 @@ def load_operations(file):
     """
     Считывание json файла, добавление операций в список
     """
-    with open('operations.json', mode='r', encoding='utf-8') as file:
+    with open('../operations.json', mode='r', encoding='utf-8') as file:
         file_json = json.load(file)
     operations_list = []
     for item in file_json:

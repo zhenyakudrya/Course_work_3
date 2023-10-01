@@ -3,7 +3,7 @@ from functions import *
 if __name__ == '__main__':
 
     # Загрузка json файла, сортировка списка операций по дате
-    operations_list = sort_by_date(load_operations('operations.json'))
+    operations_list = sort_by_date(load_operations('../operations.json'))
 
     # Выбор только выполненных последних 5 операций
     operations_list = last_operations(executed_operations(operations_list), 5)

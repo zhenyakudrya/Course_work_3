@@ -5,7 +5,7 @@ import json
 
 @pytest.fixture
 def list_fixture():
-    with open('src/operations.json', mode='r', encoding='utf-8') as file:
+    with open('../operations.json', mode='r', encoding='utf-8') as file:
         file_json = json.load(file)
     operations_list = []
     for item in file_json:
